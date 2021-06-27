@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <form method="post" action="." enctype="multipart/form-data">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    {{ titulo }}
+                </h3>
+            </div>
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="alert alert-danger alert-dismissible">
+                <h5><i class="icon fas fa-ban"></i> Notificación!</h5>
+                ¿Estás seguro que deseas eliminar el registro de {{ object.pertenece }}?
+            </div>
+            </div>
+            <div class="card-footer">
+                <button type="summit" class="btn btn-primary btn-flat">
+                    <i class="fas fa-trash"></i> Si, aceptar
+                </button>
+                <a href="{{ lista_url }}" class="btn btn-danger btn-flat">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}

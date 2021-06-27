@@ -1,0 +1,72 @@
+{% extends 'vista_admin/body.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet"
+          href="{% static '../static/lib/DataTables/DataTables-1.10.25/css/dataTables.bootstrap4.min.css' %}"/>
+    <link rel="stylesheet"
+          href="{% static '../static/lib/AdminLTE-3.1.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}"/>
+    <script src="{% static '../static/lib/DataTables/DataTables-1.10.25/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static '../static/lib/DataTables/DataTables-1.10.25/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static '../static/lib/AdminLTE-3.1.0/plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static '../static/lib/AdminLTE-3.1.0/plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
+
+{% endblock %}
+{% block head_list %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title">
+                <i class="fas fa-search"></i>
+                {{ titulo }}
+            </h3>
+        </div>
+        <div class="card-body">
+            <table class="table" id="data">
+                <thead>
+
+                {% block columnas %}
+                {% endblock %}
+
+                </thead>
+                <tbody>
+
+                {% block filas %}
+                {% endblock %}
+
+                </tbody>
+            </table>
+        </div>
+        <!--<div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    {{ sumatoria }}
+                </h3>
+            </div>
+            <div class="card-body">
+                {% block total %}
+
+                {% endblock %}
+            </div>
+        </div>-->
+
+    </div>
+
+{% endblock %}
+
+<!-- Block para dataTable-->
+{% block javascript %}
+
+    <script>
+        $(function () {
+            $('#data').DataTable({
+                responsive: true,
+                autoWidth: false
+            });
+        });
+    </script>
+
+{% endblock %}

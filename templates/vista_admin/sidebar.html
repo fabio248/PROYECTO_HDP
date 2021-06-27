@@ -1,0 +1,60 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{% url 'home:homepage' %}" class="brand-link">
+        <img src="{% static '../static/lib/AdminLTE-3.1.0/img/Logo.png' %}" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">SISTEMA SUBSIDIOS</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{% static '../static/lib/AdminLTE-3.1.0/dist/img/usuario.png' %}" class="img-circle elevation-2">
+            </div>
+            <div class="info">
+                <a href=" " class="d-block">{{ request.user.username }}</a>
+            </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-header">SUBSIDIOS</li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/apps/subsidio/luz/listado/" class="nav-link">
+                        <i class="nav-icon fas fa-bolt"></i>
+                        <p>
+                            Energía Eléctrica
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/apps/subsidio/gas/listado/" class="nav-link">
+                        <i class="nav-icon fas fa-burn"></i>
+                        <p>
+                            Gas Licuado
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/apps/subsidio/agua/listado/" class="nav-link">
+                        <i class="nav-icon fas fa-tint"></i>
+                        <p>
+                            Servicio Agua
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/apps/subsidio/transporte/listado/" class="nav-link">
+                        <i class="nav-icon fas fa-bus-alt"></i>
+                        <p>
+                            Transporte Público
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

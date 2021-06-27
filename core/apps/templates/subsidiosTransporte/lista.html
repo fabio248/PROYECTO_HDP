@@ -1,0 +1,37 @@
+{% extends 'lista.html' %}
+{% block columnas %}
+    <tr>
+        <th scope="col" style="width: 10px;">Id</th>
+        <th scope="col" style="width: 15px;">Cantidad Subsidios</th>
+        <th scope="col" style="width: 15px;">Cantidad Buses</th>
+        <th scope="col" style="width: 15px;">Cantidad Microbuses</th>
+        <th scope="col" style="width: 10px;">Frecuencia de uso</th>
+        <th scope="col" style="width: 30px;">DUI</th>
+        <th scope="col">Beneficiario</th>
+        <th scope="col" style="width: 20px;">Departamento</th>
+        <th scope="col" style="width: 20px;">Municipio</th>
+        <th scope="col" style="width: 20px;">Opciones</th>
+    </tr>
+{% endblock %}
+
+{% block filas %}
+    {% for sub in object_list %}
+        <tr>
+            <td align="center">{{ sub.id }}</td>
+            <td align="center">{{ sub.cantidad_subsidio }}</td>
+            <td align="center">{{ sub.cantidad_buses }}</td>
+            <td align="center">{{ sub.cantidad_microbuses }}</td>
+            <td align="center">{{ sub.frecuencia_uso }}</td>
+            <td>{{ sub.pertenece.dui }}</td>
+            <td>{{ sub.pertenece.nombre }} {{ sub.pertenece.apellido }}</td>
+            <td>{{ sub.pertenece.departamento }}</td>
+            <td>{{ sub.pertenece.municipio }}</td>
+            <td>
+                <a href="{% url 'apps:subsidio_transporte_edit' sub.id %}" type="button" class="btn btn-warning btn-xs btn-flat">
+                    <i class="fas fa-edit"></i></a>
+                <a href="{% url 'apps:subsidio_transporte_delete' sub.id     %}" type="button" class="btn btn-danger btn-xs btn-flat">
+                    <i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
